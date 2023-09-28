@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'screens/telaDeEntrada.dart';
+import 'screens/telaEntrada.dart';
 
 void main() {
   runApp(const MaterialApp(
