@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/comum/snackBar.dart';
+import 'package:projeto_integrador/firebase/auth_firebase.dart';
 import 'package:projeto_integrador/theme/button.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/styleInputForms.dart';
@@ -11,6 +13,12 @@ class TelaLogin extends StatefulWidget {
 }
 
 class _TelaLoginState extends State<TelaLogin> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
+
+  final AuthFirebase _autentServico = AuthFirebase();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,129 +45,170 @@ class _TelaLoginState extends State<TelaLogin> {
   }
 
   Widget getBody() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
             children: [
-              Image(image: AssetImage('assets/png/logo.png')),
-            ],
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          const Text(
-            'Unboxing',
-            style: TextStyle(
-                color: kSecundaryColor,
-                fontSize: 30,
-                fontFamily: 'Kadwa',
-                fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 57,
-          ),
-          SizedBox(
-              width: 352,
-              child: TextFormField(
-                decoration: getInputDecoration(
-                    textlabel: 'Email', icon: const Icon(Icons.email_rounded)),
-              )),
-          const SizedBox(
-            height: 27,
-          ),
-          SizedBox(
-              width: 352,
-              child: TextFormField(
-                decoration: getInputDecoration(
-                    textlabel: 'Senha', icon: const Icon(Icons.key_rounded)),
-              )),
-          const SizedBox(
-            height: 32,
-          ),
-          Container(
-            decoration: const BoxDecoration(boxShadow: [
-              BoxShadow(
-                color: Color(0x3F000000),
-                blurRadius: 4,
-                offset: Offset(0, 4),
-              )
-            ]),
-            child: ElevatedButton(
-                onPressed: null,
-                style: textButtonOpenStyle,
-                child: const Text(
-                  'Entrar',
-                  style: TextStyle(
-                      color: kPrimaryColor,
-                      fontFamily: 'Kadwa',
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                )),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 167,
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: kSecundaryColor)),
-                ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image(image: AssetImage('assets/png/logo.png')),
+                ],
               ),
-              const SizedBox(width: 2),
+              const SizedBox(
+                height: 9,
+              ),
               const Text(
-                'ou',
+                'Unboxing',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: kSecundaryColor),
+                    color: kSecundaryColor,
+                    fontSize: 30,
+                    fontFamily: 'Kadwa',
+                    fontWeight: FontWeight.bold),
               ),
-              const SizedBox(width: 2),
+              const SizedBox(
+                height: 57,
+              ),
+              SizedBox(
+                  width: 352,
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Campo obrigatório';
+                      }
+                      if (!value.contains('@')) {
+                        return 'Email inválido';
+                      }
+                      if (value.length < 5) {
+                        return 'Email muito curto';
+                      }
+                      return null;
+                    },
+                    decoration: getInputDecoration(
+                        textlabel: 'Email',
+                        icon: const Icon(Icons.email_rounded)),
+                  )),
+              const SizedBox(
+                height: 27,
+              ),
+              SizedBox(
+                  width: 352,
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Campo obrigatório';
+                      }
+                      if (value.length < 5) {
+                        return 'Senha muito curta';
+                      }
+                      return null;
+                    },
+                    decoration: getInputDecoration(
+                        textlabel: 'Senha',
+                        icon: const Icon(Icons.key_rounded)),
+                    obscureText: true,
+                  )),
+              const SizedBox(
+                height: 32,
+              ),
               Container(
-                width: 167,
-                decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: kSecundaryColor)),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 48,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: null,
-                icon: Image.asset('assets/png/icon_google.png'),
-                iconSize: 50,
-              ),
-              const SizedBox(
-                width: 39,
-              ),
-              const IconButton(
-                onPressed: null,
-                icon: Icon(
-                  Icons.facebook_rounded,
-                  color: kSecundaryColor,
-                ),
-                iconSize: 50,
+                decoration: const BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Color(0x3F000000),
+                    blurRadius: 4,
+                    offset: Offset(0, 4),
+                  )
+                ]),
+                child: ElevatedButton(
+                    onPressed: () {
+                      loginUser();
+                    },
+                    style: textButtonOpenStyle,
+                    child: const Text(
+                      'Entrar',
+                      style: TextStyle(
+                          color: kPrimaryColor,
+                          fontFamily: 'Kadwa',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    )),
               ),
               const SizedBox(
-                width: 39,
+                height: 32,
               ),
-              IconButton(
-                onPressed: null,
-                icon: Image.asset('assets/png/icon_instagram.png'),
-                iconSize: 50,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 167,
+                    decoration: const BoxDecoration(
+                      border: Border(top: BorderSide(color: kSecundaryColor)),
+                    ),
+                  ),
+                  const SizedBox(width: 2),
+                  const Text(
+                    'ou',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: kSecundaryColor),
+                  ),
+                  const SizedBox(width: 2),
+                  Container(
+                    width: 167,
+                    decoration: const BoxDecoration(
+                      border: Border(top: BorderSide(color: kSecundaryColor)),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 48,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: null,
+                    icon: Image.asset('assets/png/icon_google.png'),
+                    iconSize: 50,
+                  ),
+                  const SizedBox(
+                    width: 39,
+                  ),
+                  const IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.facebook_rounded,
+                      color: kSecundaryColor,
+                    ),
+                    iconSize: 50,
+                  ),
+                  const SizedBox(
+                    width: 39,
+                  ),
+                  IconButton(
+                    onPressed: null,
+                    icon: Image.asset('assets/png/icon_instagram.png'),
+                    iconSize: 50,
+                  )
+                ],
               )
             ],
-          )
-        ],
-      ),
-    );
+          ),
+        ));
+  }
+
+  loginUser() {
+    String email = _emailController.text;
+    String senha = _senhaController.text;
+
+    if (_formKey.currentState!.validate()) {
+      _autentServico.logarUser(email: email, senha: senha).then((String? erro) => {
+        if (erro != null){
+          mostraSnakBar(context: context, mensagem: erro)
+        }
+      });
+    }
   }
 }
