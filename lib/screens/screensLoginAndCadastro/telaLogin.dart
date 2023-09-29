@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/button.dart';
 import 'package:projeto_integrador/theme/colors.dart';
+import 'package:projeto_integrador/theme/styleInputForms.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -60,38 +61,20 @@ class _TelaLoginState extends State<TelaLogin> {
           const SizedBox(
             height: 57,
           ),
-          const SizedBox(
+          SizedBox(
               width: 352,
               child: TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.alternate_email),
-                  prefixIconColor: kTextColor,
-                  labelText: 'Email',
-                  labelStyle: TextStyle(color: kTextColor),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(color: kSecundaryColor)),
-                ),
+                decoration: getInputDecoration(
+                  textlabel: 'Email', icon: const Icon(Icons.email_rounded)),
               )),
           const SizedBox(
             height: 27,
           ),
-          const SizedBox(
+          SizedBox(
               width: 352,
               child: TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.key_rounded),
-                  prefixIconColor: kTextColor,
-                  labelText: 'Senha',
-                  labelStyle: TextStyle(color: kTextColor),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(color: kSecundaryColor)),
-                ),
+                decoration: getInputDecoration(
+                  textlabel: 'Senha', icon: const Icon(Icons.key_rounded)),
               )),
           const SizedBox(
             height: 32,
@@ -146,29 +129,33 @@ class _TelaLoginState extends State<TelaLogin> {
           const SizedBox(
             height: 48,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(
-                width: 50,
-                height: 50,
-                image: AssetImage('assets/png/icon_google.png'),
+              IconButton(
+                onPressed: null,
+                icon: Image.asset('assets/png/icon_google.png'),
+                iconSize: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 39,
               ),
-              Icon(
-                Icons.facebook,
-                color: kSecundaryColor,
-                size: 50,
+              const IconButton(
+                onPressed: null,
+                icon: Icon(
+                  Icons.facebook_rounded,
+                  color: kSecundaryColor,
+                ),
+                iconSize: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 39,
               ),
-              Image(
-                  width: 50,
-                  height: 50,
-                  image: AssetImage('assets/png/icon_instagram.png')),
+              IconButton(
+                onPressed: null,
+                icon: Image.asset('assets/png/icon_instagram.png'),
+                iconSize: 50,
+              )
             ],
           )
         ],

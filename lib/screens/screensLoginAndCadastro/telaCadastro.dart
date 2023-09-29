@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/button.dart';
 import 'package:projeto_integrador/theme/colors.dart';
+import 'package:projeto_integrador/theme/styleInputForms.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({super.key});
@@ -57,74 +58,39 @@ class _TelaCadastroState extends State<TelaCadastro> {
         const SizedBox(
           height: 57,
         ),
-        const SizedBox(
+        SizedBox(
             width: 352,
             child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person_outline),
-                prefixIconColor: kTextColor,
-                labelText: 'Nome',
-                labelStyle: TextStyle(color: kTextColor),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: kSecundaryColor)),
-              ),
+              decoration: getInputDecoration(
+                  textlabel: 'Nome', icon: const Icon(Icons.person_outline)),
             )),
         const SizedBox(
           height: 16,
         ),
-        const SizedBox(
+        SizedBox(
             width: 352,
             child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.alternate_email),
-                prefixIconColor: kTextColor,
-                labelText: 'Email',
-                labelStyle: TextStyle(color: kTextColor),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: kSecundaryColor)),
-              ),
+              decoration: getInputDecoration(
+                  textlabel: 'Email', icon: const Icon(Icons.email_rounded)),
             )),
         const SizedBox(
           height: 16,
         ),
-        const SizedBox(
+        SizedBox(
             width: 352,
             child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.key_rounded),
-                prefixIconColor: kTextColor,
-                labelText: 'Senha',
-                labelStyle: TextStyle(color: kTextColor),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: kSecundaryColor)),
-              ),
+              decoration: getInputDecoration(
+                  textlabel: 'Senha', icon: const Icon(Icons.key_rounded)),
             )),
         const SizedBox(
           height: 16,
         ),
-        const SizedBox(
+        SizedBox(
             width: 352,
             child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.key_rounded),
-                prefixIconColor: kTextColor,
-                labelText: 'Confirma Senha',
-                labelStyle: TextStyle(color: kTextColor),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(color: kSecundaryColor)),
-              ),
+              decoration: getInputDecoration(
+                  textlabel: 'Confirme sua senha',
+                  icon: const Icon(Icons.key_rounded)),
             )),
         const SizedBox(
           height: 45,
