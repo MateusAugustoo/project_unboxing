@@ -63,18 +63,18 @@ class _TelaLoginState extends State<TelaLogin> {
           ),
           SizedBox(
               width: 352,
-              child: TextField(
+              child: TextFormField(
                 decoration: getInputDecoration(
-                  textlabel: 'Email', icon: const Icon(Icons.email_rounded)),
+                    textlabel: 'Email', icon: const Icon(Icons.email_rounded)),
               )),
           const SizedBox(
             height: 27,
           ),
           SizedBox(
               width: 352,
-              child: TextField(
+              child: TextFormField(
                 decoration: getInputDecoration(
-                  textlabel: 'Senha', icon: const Icon(Icons.key_rounded)),
+                    textlabel: 'Senha', icon: const Icon(Icons.key_rounded)),
               )),
           const SizedBox(
             height: 32,

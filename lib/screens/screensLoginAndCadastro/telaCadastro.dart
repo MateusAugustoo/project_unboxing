@@ -60,7 +60,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ),
         SizedBox(
             width: 352,
-            child: TextField(
+            child: TextFormField(
               decoration: getInputDecoration(
                   textlabel: 'Nome', icon: const Icon(Icons.person_outline)),
             )),
@@ -69,7 +69,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ),
         SizedBox(
             width: 352,
-            child: TextField(
+            child: TextFormField(
               decoration: getInputDecoration(
                   textlabel: 'Email', icon: const Icon(Icons.email_rounded)),
             )),
@@ -78,7 +78,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ),
         SizedBox(
             width: 352,
-            child: TextField(
+            child: TextFormField(
               decoration: getInputDecoration(
                   textlabel: 'Senha', icon: const Icon(Icons.key_rounded)),
             )),
@@ -87,7 +87,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
         ),
         SizedBox(
             width: 352,
-            child: TextField(
+            child: TextFormField(
               decoration: getInputDecoration(
                   textlabel: 'Confirme sua senha',
                   icon: const Icon(Icons.key_rounded)),
