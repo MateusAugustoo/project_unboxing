@@ -26,7 +26,8 @@ class _TelaCadastroState extends State<TelaCadastro> {
       centerTitle: true,
       title: const Text(
         'Cadastro',
-        style: TextStyle(color: Colors.black, fontSize: 30),
+        style: TextStyle(
+            color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
       ),
       elevation: 0,
       backgroundColor: kPrimaryColor,
