@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:projeto_integrador/theme/colors.dart';
+
+final ButtonStyle getStyleButtonOpen = ElevatedButton.styleFrom(
+    backgroundColor: kColorTextPrimary,
+    minimumSize: const Size(167, 55),
+    textStyle: const TextStyle(
+        fontFamily: 'Kadwa',
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: kColorTextSecondary),
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(
+          color: kColorTextTertiary,
+          width: 2,
+        )));
+
+final ButtonStyle getStyleButtonCadastro = ElevatedButton.styleFrom(
+    backgroundColor: kColorTextTertiary,
+    minimumSize: const Size(167, 55),
+    textStyle: const TextStyle(
+      fontFamily: 'Kadwa',
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+    ),
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(
+          color: kColorTextPrimary,
+          width: 2,
+        )));
