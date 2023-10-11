@@ -4,6 +4,7 @@ import 'package:projeto_integrador/theme/colors.dart';
 InputDecoration getInputDecoration(
     {String? textlabel, Icon? icon}) {
   return InputDecoration(
+    contentPadding: const EdgeInsets.only(left: 10),
     prefixIcon: (icon),
     prefixIconColor: kColorIconInput,
     labelText: (textlabel),

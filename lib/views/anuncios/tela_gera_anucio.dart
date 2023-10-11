@@ -1,4 +1,7 @@
+
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/firebase/firestore_firebase.dart';
+import 'package:projeto_integrador/model/produto.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_button_style.dart';
 import 'package:projeto_integrador/theme/get_input_decoration.dart';
@@ -11,6 +14,17 @@ class GeraAnucio extends StatefulWidget {
 }
 
 class _GeraAnucioState extends State<GeraAnucio> {
+
+  FirestoreFirebase _firestore = FirestoreFirebase();
+
+  final _fromKey = GlobalKey<FormState>();
+  final _nomeProdutoController = TextEditingController();
+  final _descController = TextEditingController();
+  final _marcaController = TextEditingController();
+  final _defeitoController = TextEditingController();
+  final _precoController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +57,7 @@ class _GeraAnucioState extends State<GeraAnucio> {
 
   Widget _getForm() {
     return Form(
+      key: _fromKey,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -50,35 +65,7 @@ class _GeraAnucioState extends State<GeraAnucio> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 160,
-                  height: 160,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                      kColorTextTertiary,
-                    )),
-                    child: const Icon(
-                      Icons.photo_outlined,
-                      color: kColorTextSecondary,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                Text(
-                  'Adicione fotos do seu produto para que ele tenha \nmais visibilidade',
-                  style: TextStyle(
-                      fontFamily: 'Kadwa',
-                      fontSize: 11,
-                      color: Colors.grey.shade700,
-                      height: 2),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
+                
                 SizedBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +83,10 @@ class _GeraAnucioState extends State<GeraAnucio> {
                       SizedBox(
                         width: 353,
                         height: 40,
-                        child: TextFormField(decoration: getInputDecoration()),
+                        child: TextFormField(
+                          decoration: getInputDecoration(),
+                          controller: _nomeProdutoController,
+                        ),
                       ),
                     ],
                   ),
@@ -125,6 +115,7 @@ class _GeraAnucioState extends State<GeraAnucio> {
                           decoration: getInputDecoration(),
                           maxLines: null,
                           maxLength: 400,
+                          controller: _descController,
                         ),
                       ),
                     ],
@@ -147,7 +138,10 @@ class _GeraAnucioState extends State<GeraAnucio> {
                       SizedBox(
                         width: 353,
                         height: 40,
-                        child: TextFormField(decoration: getInputDecoration()),
+                        child: TextFormField(
+                          decoration: getInputDecoration(),
+                          controller: _marcaController,
+                        ),
                       ),
                     ],
                   ),
@@ -172,7 +166,10 @@ class _GeraAnucioState extends State<GeraAnucio> {
                       SizedBox(
                         width: 353,
                         height: 40,
-                        child: TextFormField(decoration: getInputDecoration()),
+                        child: TextFormField(
+                          decoration: getInputDecoration(),
+                          controller: _defeitoController,
+                        ),
                       ),
                       Text(
                         'Informe caso o aparelho esteja danificado',
@@ -205,7 +202,11 @@ class _GeraAnucioState extends State<GeraAnucio> {
                       SizedBox(
                         width: 188,
                         height: 35,
-                        child: TextFormField(decoration: getInputDecoration()),
+                        child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: getInputDecoration(),
+                          controller: _precoController,
+                        ),
                       ),
                     ],
                   ),
@@ -225,4 +226,17 @@ class _GeraAnucioState extends State<GeraAnucio> {
       ),
     );
   }
+
+  gererAnuncio() {
+    final produto = Produto(
+      nomeProduto: _nomeProdutoController.text,
+      descricao: _descController.text,
+      marcaProduto: _marcaController.text,
+      defeito: _defeitoController.text,
+      preco: _precoController.text,
+    );
+
+    _firestore.cadastarProduto('produto', produto.toMap());
+  }
+
 }
