@@ -67,9 +67,11 @@ Widget getDrawer(BuildContext context) {
                 ),
               ),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenHome');
+              },
+              title: const Text(
                 'Inicio',
                 style: TextStyle(
                     fontFamily: 'Kadwa',
@@ -77,7 +79,7 @@ Widget getDrawer(BuildContext context) {
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.home_outlined,
                 size: 30,
                 color: Colors.white,
@@ -156,9 +158,11 @@ Widget getDrawer(BuildContext context) {
                 size: 30,
               ),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenAnuncio');
+              },
+              title: const Text(
                 'Aúncios',
                 style: TextStyle(
                     fontFamily: 'Kadwa',
@@ -166,7 +170,7 @@ Widget getDrawer(BuildContext context) {
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.sell_outlined,
                 color: Colors.white,
                 size: 30,

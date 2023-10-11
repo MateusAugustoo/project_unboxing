@@ -14,7 +14,9 @@ final ButtonStyle getStyleButtonOpen = ElevatedButton.styleFrom(
         side: const BorderSide(
           color: kColorTextTertiary,
           width: 2,
-        )));
+    ),
+  ),
+);
 
 final ButtonStyle getStyleButtonCadastro = ElevatedButton.styleFrom(
     backgroundColor: kColorTextTertiary,
@@ -29,4 +31,11 @@ final ButtonStyle getStyleButtonCadastro = ElevatedButton.styleFrom(
         side: const BorderSide(
           color: kColorTextPrimary,
           width: 2,
-        )));
+    ),
+  ),
+);
+
+final ButtonStyle getButtonGeraAnuncioStyle = ElevatedButton.styleFrom(
+  backgroundColor: Colors.white,
+  minimumSize: const Size(353, 41),
+);

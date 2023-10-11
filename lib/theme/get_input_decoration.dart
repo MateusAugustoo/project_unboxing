@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 
 InputDecoration getInputDecoration(
-    {required String textlabel, required Icon icon}) {
+    {String? textlabel, Icon? icon}) {
   return InputDecoration(
     prefixIcon: (icon),
     prefixIconColor: kColorIconInput,
