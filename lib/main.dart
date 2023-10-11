@@ -23,7 +23,7 @@ class Routes extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/ScreenHome',
+      initialRoute: '/',
       routes: {
         '/': (context) => const TelaEntrada(),
         '/ScreenLogin': (context) => const TelaLogin(),
