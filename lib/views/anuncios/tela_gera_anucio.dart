@@ -1,10 +1,13 @@
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:projeto_integrador/firebase/firestore_firebase.dart';
 import 'package:projeto_integrador/model/produto.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_button_style.dart';
 import 'package:projeto_integrador/theme/get_input_decoration.dart';
+import 'package:projeto_integrador/theme/text_form_style.dart';
 
 class GeraAnucio extends StatefulWidget {
   const GeraAnucio({super.key});
@@ -14,8 +17,9 @@ class GeraAnucio extends StatefulWidget {
 }
 
 class _GeraAnucioState extends State<GeraAnucio> {
+  final _firestore = FirestoreFirebase();
 
-  FirestoreFirebase _firestore = FirestoreFirebase();
+  File? image;
 
   final _fromKey = GlobalKey<FormState>();
   final _nomeProdutoController = TextEditingController();
@@ -23,7 +27,6 @@ class _GeraAnucioState extends State<GeraAnucio> {
   final _marcaController = TextEditingController();
   final _defeitoController = TextEditingController();
   final _precoController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,17 +68,31 @@ class _GeraAnucioState extends State<GeraAnucio> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
+                GestureDetector(
+                  onTap: selectImage,
+                  child: image != null
+                      ? Image.file(image!, width: 160, height: 160)
+                      : SizedBox(
+                          width: 160,
+                          height: 160,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10))),
+                            child: const Icon(Icons.photo_outlined),
+                          ),
+                        ),
+                ),
                 SizedBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Nome do aparelho:',
-                        style: TextStyle(
-                            fontFamily: 'Kadwa',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: getStyleTextAnuncio,
                       ),
                       const SizedBox(
                         height: 10,
@@ -98,12 +115,9 @@ class _GeraAnucioState extends State<GeraAnucio> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Descrição:',
-                        style: TextStyle(
-                            fontFamily: 'Kadwa',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: getStyleTextAnuncio,
                       ),
                       const SizedBox(
                         height: 10,
@@ -125,12 +139,9 @@ class _GeraAnucioState extends State<GeraAnucio> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Marca:',
-                        style: TextStyle(
-                            fontFamily: 'Kadwa',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: getStyleTextAnuncio,
                       ),
                       const SizedBox(
                         height: 10,
@@ -153,12 +164,9 @@ class _GeraAnucioState extends State<GeraAnucio> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Defeito:',
-                        style: TextStyle(
-                            fontFamily: 'Kadwa',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: getStyleTextAnuncio,
                       ),
                       const SizedBox(
                         height: 10,
@@ -173,11 +181,7 @@ class _GeraAnucioState extends State<GeraAnucio> {
                       ),
                       Text(
                         'Informe caso o aparelho esteja danificado',
-                        style: TextStyle(
-                            fontFamily: 'Kadwa',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey.shade600),
+                        style: getStyleTextAlert,
                       ),
                     ],
                   ),
@@ -189,12 +193,9 @@ class _GeraAnucioState extends State<GeraAnucio> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Preço:',
-                        style: TextStyle(
-                            fontFamily: 'Kadwa',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
+                        style: getStyleTextAnuncio,
                       ),
                       const SizedBox(
                         height: 10,
@@ -217,7 +218,9 @@ class _GeraAnucioState extends State<GeraAnucio> {
               height: 32,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                gererAnuncio();
+              },
               style: getStyleButtonOpen,
               child: const Text('Anunciar'),
             )
@@ -239,4 +242,18 @@ class _GeraAnucioState extends State<GeraAnucio> {
     _firestore.cadastarProduto('produto', produto.toMap());
   }
 
+  Future selectImage() async {
+    final ImagePicker picker = ImagePicker();
+
+    try {
+      XFile? file = await picker.pickImage(source: ImageSource.gallery);
+      if (file != null) {
+        setState(() {
+          image = File(file.path);
+        });
+      }
+    } catch (e) {
+      return e;
+    }
+  }
 }

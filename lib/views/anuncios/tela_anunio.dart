@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_button_style.dart';
+import 'package:projeto_integrador/widgets/get_app_bar_screens.dart';
 import 'package:projeto_integrador/widgets/get_drawer.dart';
 
 class TelaAnuncio extends StatefulWidget {
@@ -16,30 +17,10 @@ class _TelaAnuncioState extends State<TelaAnuncio> {
     return Scaffold(
       drawer: getDrawer(context),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70), child: _getAppBar()),
+          preferredSize: const Size.fromHeight(70),
+          child: getAppBarScreens(title: 'Anúncio')),
       body: _getBody(),
       backgroundColor: kColorTextTertiary,
-    );
-  }
-
-  Widget _getAppBar() {
-    return Container(
-      decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: kColorTextPrimary))),
-      child: AppBar(
-        elevation: 0,
-        backgroundColor: kColorTextTertiary,
-        centerTitle: true,
-        title: const Text(
-          'Anúncios',
-          style: TextStyle(
-              fontFamily: 'Kadwa',
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-              color: kColorTextSecondary),
-        ),
-        iconTheme: const IconThemeData(color: kColorTextSecondary, size: 35),
-      ),
     );
   }
 

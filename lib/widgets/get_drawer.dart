@@ -17,7 +17,9 @@ Widget getDrawer(BuildContext context) {
             DrawerHeader(
               decoration: getStyleDrawer,
               child: GestureDetector(
-                onTap: null,
+                onTap: () {
+                  Navigator.pushNamed(context, '/ScreenPerfil');
+                },
                 child: const Row(
                   children: [
                     CircleAvatar(
@@ -129,9 +131,11 @@ Widget getDrawer(BuildContext context) {
                 size: 30,
               ),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenCarrinho');
+              },
+              title: const Text(
                 'Carrinho',
                 style: TextStyle(
                     color: kColorTextTertiary,
@@ -139,7 +143,7 @@ Widget getDrawer(BuildContext context) {
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),
-              leading: Icon(Icons.shopping_cart_outlined,
+              leading: const Icon(Icons.shopping_cart_outlined,
                   color: Colors.white, size: 30),
             ),
             const ListTile(

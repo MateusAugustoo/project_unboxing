@@ -17,12 +17,12 @@ class _TelaHomeState extends State<TelaHome> {
       drawer: getDrawer(context),
       backgroundColor: kBackGroundColor,
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70), child: _getAppBar()),
-      body: _getBody(),
+          preferredSize: const Size.fromHeight(70), child: _getAppBarHome()),
+      body: _getBodyHome(),
     );
   }
 
-  Widget _getAppBar() {
+  Widget _getAppBarHome() {
     return AppBar(
       automaticallyImplyLeading: true,
       iconTheme: const IconThemeData(
@@ -55,9 +55,10 @@ class _TelaHomeState extends State<TelaHome> {
         ],
       ),
     );
-  }
+  } 
 
-  Widget _getBody() {
+  Widget _getBodyHome() {
     return const Center();
   }
+  
 }

@@ -3,6 +3,7 @@ import 'package:projeto_integrador/firebase/auth_firebase.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_button_style.dart';
 import 'package:projeto_integrador/theme/get_input_decoration.dart';
+import 'package:projeto_integrador/widgets/get_app_bar_login_cadastro.dart';
 
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
@@ -21,35 +22,15 @@ class _TelaLoginState extends State<TelaLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        toolbarHeight: 70,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 30,
-          ),
-        ),
-        title: const Text(
-          'Entrar',
-          style: TextStyle(
-              fontFamily: 'Kadwa',
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-              color: Colors.black),
-        ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: getAppBarLoginCadastro(context, title: 'Login'),
       ),
-      body: getBodyLoginPage(),
+      body: _getBodyLoginPage(),
     );
   }
 
-  Widget getBodyLoginPage() {
+  Widget _getBodyLoginPage() {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -216,6 +197,5 @@ class _TelaLoginState extends State<TelaLogin> {
           .logarUser(email: email, senha: senha)
           .then((value) => Navigator.pushNamed(context, '/ScreenHome'));
     }
-    
   }
 }

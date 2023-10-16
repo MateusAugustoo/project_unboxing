@@ -13,11 +13,11 @@ class _TelaEntradaState extends State<TelaEntrada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: getBody(),
+      body: _getBody(),
     );
   }
 
-  Widget getBody() {
+  Widget _getBody() {
     return SafeArea(
       child: Column(
         children: [
