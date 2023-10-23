@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 
-Widget getAppBarScreens({required String title}) {
-  return Container(
-    decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: kColorTextPrimary))),
-    child: AppBar(
-      elevation: 0,
-      backgroundColor: kColorTextTertiary,
-      centerTitle: true,
-      title: Text(
-        (title),
-        style: const TextStyle(
-            fontFamily: 'Kadwa',
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            color: kColorTextSecondary),
+Widget getAppBarScreensSecundary({required String title}) {
+  return Column(
+    children: [
+      AppBar(
+        backgroundColor: kBackGroundColor,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: const IconThemeData(
+          color: kColorTextSecondary,
+          size: 30,
+        ),
+        title: Text(
+          (title),
+          style: const TextStyle(
+              fontFamily: 'Kadwa',
+              color: kColorTextSecondary,
+              fontWeight: FontWeight.bold,
+              fontSize: 20),
+        ),
       ),
-      iconTheme: const IconThemeData(color: kColorTextSecondary, size: 35),
-    ),
+      const Divider(
+        color: kColorTextPrimary,
+        height: 35,
+        indent: 20,
+        endIndent: 20,
+      )
+    ],
   );
 }

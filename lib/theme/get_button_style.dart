@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 
-final ButtonStyle getStyleButtonOpen = ElevatedButton.styleFrom(
+ButtonStyle getStyleButton(
+  {required double width, required double height,}
+) {
+  return ElevatedButton.styleFrom(
     backgroundColor: kColorTextPrimary,
-    minimumSize: const Size(167, 55),
+    minimumSize: Size(width, height),
     textStyle: const TextStyle(
         fontFamily: 'Kadwa',
         fontSize: 20,
@@ -17,6 +20,7 @@ final ButtonStyle getStyleButtonOpen = ElevatedButton.styleFrom(
     ),
   ),
 );
+}
 
 final ButtonStyle getStyleButtonCadastro = ElevatedButton.styleFrom(
     backgroundColor: kColorTextTertiary,

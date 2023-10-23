@@ -74,7 +74,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
               controller: _nameController,
               decoration: getInputDecoration(
                 textlabel: 'Nome',
-                icon: const Icon(Icons.person),
+                icon: Icons.person_rounded,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -93,7 +93,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
               controller: _emailController,
               decoration: getInputDecoration(
                 textlabel: 'Email',
-                icon: const Icon(Icons.alternate_email_rounded),
+                icon: Icons.alternate_email_rounded,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -179,7 +179,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
             onPressed: () {
               cadastraUser();
             },
-            style: getStyleButtonOpen,
+            style: getStyleButton(width: 167, height: 55),
             child: const Text(
               'Cadastrar',
             ),

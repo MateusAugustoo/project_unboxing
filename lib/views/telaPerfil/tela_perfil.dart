@@ -68,13 +68,15 @@ class _TelaPerfilState extends State<TelaPerfil> {
                 )
               ],
             ),
-            getLineSpacePerfil(),
+            getLineSpace(),
             getSelectOpcPerfil(
                 text: 'Endereço',
                 iconSelect: Icons.person_pin_circle_outlined,
                 sizedBox: 85,
-                onTap: null),
-            getLineSpacePerfil(),
+                onTap: () => {
+                  Navigator.pushNamed(context, '/ScreenEndereço')
+                }),
+            getLineSpace(),
             getSelectOpcPerfil(
                 text: 'Formas de Pagamento',
                 iconSelect: Icons.style_outlined,
@@ -82,17 +84,17 @@ class _TelaPerfilState extends State<TelaPerfil> {
                   Navigator.pushNamed(context, '/ScreenFormaPagamento');
                 },
                 sizedBox: 45),
-            getLineSpacePerfil(),
+            getLineSpace(),
             getSelectOpcPerfil(
                 text: 'Redefinir Senha',
                 iconSelect: Icons.key_outlined,
                 sizedBox: 58),
-            getLineSpacePerfil(),
+            getLineSpace(),
             getSelectOpcPerfil(
                 text: 'Configurar perfil',
                 iconSelect: Icons.account_circle_outlined,
                 sizedBox: 59),
-            getLineSpacePerfil(),
+            getLineSpace(),
           ],
         ),
       ),

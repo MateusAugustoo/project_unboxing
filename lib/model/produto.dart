@@ -1,6 +1,6 @@
 import 'dart:io';
 
-class Produto {
+class Produto{
   final File? photoUrl;
   final String? nomeProduto;
   final String? descricao;
@@ -19,7 +19,7 @@ class Produto {
   });
 
   toMap() {
-    return {
+    return <String, dynamic>{
       'photoUrl': photoUrl,
       'nomeProduto': nomeProduto,
       'descricao': descricao,

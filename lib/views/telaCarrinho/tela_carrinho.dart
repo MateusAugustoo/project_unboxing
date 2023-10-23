@@ -15,8 +15,8 @@ class _TelaCardState extends State<TelaCard> {
     return Scaffold(
       drawer: getDrawer(context),
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: getAppBarScreens(title: 'Carrinho'),
+        preferredSize: const Size.fromHeight(91),
+        child: getAppBarScreensSecundary(title: 'Carrinho'),
       ),
       body: Container(),
     );

@@ -17,10 +17,10 @@ class _TelaAnuncioState extends State<TelaAnuncio> {
     return Scaffold(
       drawer: getDrawer(context),
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
-          child: getAppBarScreens(title: 'Anúncio')),
+          preferredSize: const Size.fromHeight(95),
+          child: getAppBarScreensSecundary(title: 'Anúncio')),
       body: _getBody(),
-      backgroundColor: kColorTextTertiary,
+      backgroundColor: kBackGroundColor,
     );
   }
 
@@ -29,9 +29,6 @@ class _TelaAnuncioState extends State<TelaAnuncio> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 34,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -60,7 +57,8 @@ class _TelaAnuncioState extends State<TelaAnuncio> {
                           size: 30,
                         )
                       ],
-                    )),
+                  ),
+                ),
               )
             ],
           ),

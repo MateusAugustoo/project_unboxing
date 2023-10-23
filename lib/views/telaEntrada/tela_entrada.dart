@@ -58,7 +58,7 @@ class _TelaEntradaState extends State<TelaEntrada> {
             onPressed: () {
               Navigator.pushNamed(context, '/ScreenLogin');
             },
-            style: getStyleButtonOpen,
+            style: getStyleButton(width: 167, height: 55),
             child: const Text('Entrar'),
           ),
           const SizedBox(

@@ -221,7 +221,7 @@ class _GeraAnucioState extends State<GeraAnucio> {
               onPressed: () {
                 gererAnuncio();
               },
-              style: getStyleButtonOpen,
+              style: getStyleButton(width: 166, height: 51),
               child: const Text('Anunciar'),
             )
           ],
@@ -239,7 +239,7 @@ class _GeraAnucioState extends State<GeraAnucio> {
       preco: _precoController.text,
     );
 
-    _firestore.cadastarProduto('produto', produto.toMap());
+    _firestore.cadastarFirebase('produtor', produto.toMap());
   }
 
   Future selectImage() async {

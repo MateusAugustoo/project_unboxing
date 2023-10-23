@@ -140,7 +140,7 @@ class _TelaLoginState extends State<TelaLogin> {
               controller: _emailController,
               decoration: getInputDecoration(
                 textlabel: 'Email',
-                icon: const Icon(Icons.alternate_email_rounded),
+                icon: Icons.alternate_email_rounded,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -162,7 +162,7 @@ class _TelaLoginState extends State<TelaLogin> {
               controller: _passwordController,
               decoration: getInputDecoration(
                 textlabel: 'Senha',
-                icon: const Icon(Icons.key_rounded),
+                icon: Icons.key_rounded,
               ),
               obscureText: true,
               validator: (value) {
@@ -180,7 +180,7 @@ class _TelaLoginState extends State<TelaLogin> {
             onPressed: () {
               loginPage();
             },
-            style: getStyleButtonOpen,
+            style: getStyleButton(width: 167, height: 55),
             child: const Text('Entrar'),
           ),
         ],
@@ -194,8 +194,13 @@ class _TelaLoginState extends State<TelaLogin> {
 
     if (_formKey.currentState!.validate()) {
       _auth
-          .logarUser(email: email, senha: senha)
-          .then((value) => Navigator.pushNamed(context, '/ScreenHome'));
+          .logarUser(email: email, senha: senha).then(
+        (value) {
+          if (value == null) {
+            Navigator.pushNamed(context, '/ScreenHome');
+          }
+        },
+      );
     }
   }
 }

@@ -55,10 +55,19 @@ class _TelaHomeState extends State<TelaHome> {
         ],
       ),
     );
-  } 
+  }
 
   Widget _getBodyHome() {
-    return const Center();
+    return const SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [],
+            )
+          ],
+        ),
+      ),
+    );
   }
-  
 }
