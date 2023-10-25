@@ -74,7 +74,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
                 iconSelect: Icons.person_pin_circle_outlined,
                 sizedBox: 85,
                 onTap: () => {
-                  Navigator.pushNamed(context, '/ScreenEndereço')
+                  Navigator.pushNamed(context, '/ScreenEndereco')
                 }),
             getLineSpace(),
             getSelectOpcPerfil(

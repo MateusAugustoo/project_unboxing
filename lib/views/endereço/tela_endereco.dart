@@ -78,6 +78,9 @@ class _TelaEnderecoState extends State<TelaEndereco> {
               itemBuilder: (BuildContext context, int index) {
                 final Map<String, dynamic> data =
                     documents[index].data() as Map<String, dynamic>;
+                final String id = documents[index].id;
+
+                final numCasa = data['numeroCasa'] ?? '';
 
                 return Container(
                   margin: const EdgeInsets.all(5),
@@ -94,25 +97,28 @@ class _TelaEnderecoState extends State<TelaEndereco> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Icon(
-                              Icons.home_rounded,
-                              size: 40,
-                              color: kColorIconInput,
-                            ),
-                            const SizedBox(
-                              width: 18,
-                            ),
-                            Container(
-                              height: 57,
-                              decoration: const BoxDecoration(
-                                border: Border(
-                                  right: BorderSide(color: kColorTextPrimary),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.home_rounded,
+                                  size: 40,
+                                  color: kColorIconInput,
                                 ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 20,
+                                const SizedBox(
+                                  width: 18,
+                                ),
+                                Container(
+                                  height: 57,
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      right:
+                                          BorderSide(color: kColorTextPrimary),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +132,7 @@ class _TelaEnderecoState extends State<TelaEndereco> {
                                       fontWeight: FontWeight.w700),
                                 ),
                                 Text(
-                                  '${data['rua']} ${data['numero'] != null ? data['numero'] : ''}',
+                                  '${data['rua']}  - $numCasa',
                                   style: const TextStyle(
                                       fontFamily: 'Kadwa',
                                       fontSize: 11,
@@ -143,13 +149,12 @@ class _TelaEnderecoState extends State<TelaEndereco> {
                                 )
                               ],
                             ),
-                            const SizedBox(
-                              width: 80,
-                            ),
                             Column(
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    _firestore.deleteDatabase('Endereco', id);
+                                  },
                                   icon:
                                       const Icon(Icons.delete_forever_rounded),
                                   color: Colors.red,

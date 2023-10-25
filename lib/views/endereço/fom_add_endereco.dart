@@ -4,6 +4,7 @@ import 'package:projeto_integrador/model/endereco.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_button_style.dart';
 import 'package:projeto_integrador/theme/text_form_style.dart';
+import 'package:projeto_integrador/widgets/get_aler_dialog.dart';
 import 'package:projeto_integrador/widgets/get_app_bar_screens.dart';
 
 import '../../theme/get_input_decoration.dart';
@@ -254,7 +255,16 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
           cep: _cepController.text,
           uf: _ufController.text);
 
-      await _firestore.cadastarFirebase('Endereco', userEndereco.toJson());
+      await _firestore.cadastarFirebase('Endereco', userEndereco.toJson()).then(
+            (value) => showDialog(
+              context: context,
+              builder: (BuildContext build) => alertDialogAddEndereco(
+                  title: 'Woo-hoo!!',
+                  content: 'Endereço adicionado com sucesso!',
+                  textButton: 'OK',
+                  context: context),
+            ),
+          );
     }
   }
 }

@@ -30,7 +30,7 @@ class Routes extends StatelessWidget {
         '/ScreenCarrinho': (context) => const TelaCard(),
         '/ScreenPerfil': (context) => const TelaPerfil(),
         '/ScreenFormaPagamento': (context) => const AddFormaPagamento(),
-        '/ScreenEndereço': (context) => const TelaEndereco(),
+        '/ScreenEndereco': (context) => const TelaEndereco(),
         '/ScreenFormAddEndereco': (context) => const FormeAddEndereco(),
       },
     );
