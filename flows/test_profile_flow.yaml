@@ -1,0 +1,7 @@
+description: Profil test screens
+---
+- expectVisible: 'Mateus Augsuto'
+- expectVisible: 'Endereço'
+- tapOn: 'Endereço'
+- expectVisible: 'Adicionar Endereço'
+- tapOn: 'Adicionar Endereço'

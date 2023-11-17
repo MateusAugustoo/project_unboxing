@@ -42,6 +42,9 @@ dependencies:
   cloud_firestore: ^4.9.3
   image_picker: ^1.0.4
   firebase_storage: ^11.2.8
+  fluttium_driver: ^0.1.3
+  fluttium_protocol: ^0.1.0
+  fluttium_interfaces: ^0.1.0
 
 dev_dependencies:
   flutter_test:

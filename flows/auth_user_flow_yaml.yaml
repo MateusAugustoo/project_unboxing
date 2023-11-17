@@ -1,0 +1,14 @@
+description: My first Fluttium flow.
+---
+- expectVisible: 'Unboxing'
+- expectVisible: 'Entrar'
+- tapOn: 'Entrar'
+- expectVisible: 'Email'
+- tapOn: 'Email'
+- inputText: 'mateusa@gmail.com'
+- expectVisible: 'Senha'
+- tapOn: 'Senha'
+- inputText: '123321'
+- expectVisible: 'Entrar'
+- tapOn: 'Entrar'
+- expectVisible: 'Procurar Produto...'

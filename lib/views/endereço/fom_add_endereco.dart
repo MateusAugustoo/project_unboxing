@@ -64,6 +64,7 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
                         controller: _ruaController,
                         decoration: getInputDecoration(
                           icon: Icons.location_on_outlined,
+                          textlabel: 'Rua'
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -90,7 +91,8 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
                       child: TextFormField(
                         controller: _bairroController,
                         decoration: getInputDecoration(
-                          icon: Icons.location_on_outlined,
+                            icon: Icons.location_on_outlined,
+                            textlabel: 'Bairro'
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -117,7 +119,8 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
                       child: TextFormField(
                         controller: _numeroCasaController,
                         keyboardType: TextInputType.number,
-                        decoration: getInputDecoration(icon: Icons.pin),
+                        decoration: getInputDecoration(
+                            icon: Icons.pin, textlabel: 'Número da Casa'),
                       ),
                     )
                   ],
@@ -143,6 +146,7 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
                             keyboardType: TextInputType.number,
                             decoration: getInputDecoration(
                               icon: Icons.contact_mail_outlined,
+                                textlabel: 'Cep'
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -185,6 +189,7 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
                                 controller: _cidadeController,
                                 decoration: getInputDecoration(
                                   icon: Icons.location_on_outlined,
+                                    textlabel: 'cidade'
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -209,7 +214,7 @@ class _FormeAddEnderecoState extends State<FormeAddEndereco> {
                           width: 73,
                           child: TextFormField(
                             controller: _ufController,
-                            decoration: getInputDecorationUf(),
+                            decoration: getInputDecorationUf('uf'),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Por favor, digite uma UF';

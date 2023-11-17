@@ -32,14 +32,16 @@ InputDecoration getInputDecorationPassword(
   );
 }
 
-InputDecoration getInputDecorationUf() {
-  return const InputDecoration(
-    contentPadding: EdgeInsets.only(left: 5),
+InputDecoration getInputDecorationUf(String? textlabel) {
+  return InputDecoration(
+    contentPadding: const EdgeInsets.only(left: 5),
+    labelText: textlabel,
     prefixIconColor: kColorIconInput,
-    labelStyle: TextStyle(color: kColorTextPrimary),
+    labelStyle: const TextStyle(color: kColorTextPrimary),
     border:
-        OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-    enabledBorder: OutlineInputBorder(
+       const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10))),
+    enabledBorder: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         borderSide: BorderSide(color: kColorTextPrimary)),
   );
