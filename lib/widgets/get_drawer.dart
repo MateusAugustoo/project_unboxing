@@ -59,7 +59,7 @@ Widget getDrawer(BuildContext context) {
                             Icon(
                               Icons.edit_note_rounded,
                               color: kColorTextTertiary,
-                              size: 25,
+                              size: 24,
                             )
                           ],
                         )
@@ -115,9 +115,11 @@ Widget getDrawer(BuildContext context) {
                 size: 30,
               ),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenFavoritos');
+              },
+              title: const Text(
                 'Favoritos',
                 style: TextStyle(
                     fontFamily: 'Kadwa',
@@ -125,7 +127,7 @@ Widget getDrawer(BuildContext context) {
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.favorite_outline_rounded,
                 color: Colors.white,
                 size: 30,
@@ -146,9 +148,11 @@ Widget getDrawer(BuildContext context) {
               leading: const Icon(Icons.shopping_cart_outlined,
                   color: Colors.white, size: 30),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenCompras');
+              },
+              title: const Text(
                 'Compras',
                 style: TextStyle(
                     fontFamily: 'Kadwa',
@@ -156,7 +160,7 @@ Widget getDrawer(BuildContext context) {
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.shopping_bag_outlined,
                 color: Colors.white,
                 size: 30,
@@ -196,9 +200,11 @@ Widget getDrawer(BuildContext context) {
                 size: 30,
               ),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenEntrada');
+              },
+              title: const Text(
                 'Sair',
                 style: TextStyle(
                     fontFamily: 'Kadwa',
@@ -206,7 +212,7 @@ Widget getDrawer(BuildContext context) {
                     fontWeight: FontWeight.bold,
                     color: kColorTextTertiary),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.logout_outlined,
                 color: Colors.white,
                 size: 30,

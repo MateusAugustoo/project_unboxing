@@ -8,9 +8,12 @@ import 'package:projeto_integrador/views/telaCarrinho/tela_carrinho.dart';
 import 'package:projeto_integrador/views/telaEntrada/tela_entrada.dart';
 import 'package:projeto_integrador/views/telaLogin/tela_login.dart';
 import 'package:projeto_integrador/views/telaPerfil/tela_perfil.dart';
+import 'package:projeto_integrador/views/redefinirSenha/redefinir_senha.dart';
 
 import '../views/endereço/fom_add_endereco.dart';
 import '../views/endereço/tela_endereco.dart';
+import '../views/telaCompras/tela_compras.dart';
+import '../views/telaFavoritos/tela_favoritos.dart';
 
 class Routes extends StatelessWidget {
   const Routes({super.key});
@@ -22,6 +25,7 @@ class Routes extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const TelaEntrada(),
+        '/ScreenEntrada': (context) => const TelaEntrada(),
         '/ScreenLogin': (context) => const TelaLogin(),
         '/ScreenCadastro': (context) => const TelaCadastro(),
         '/ScreenHome': (context) => const TelaHome(),
@@ -32,6 +36,9 @@ class Routes extends StatelessWidget {
         '/ScreenFormaPagamento': (context) => const AddFormaPagamento(),
         '/ScreenEndereco': (context) => const TelaEndereco(),
         '/ScreenFormAddEndereco': (context) => const FormeAddEndereco(),
+        '/ScreenCompras': (context) => const TelaComp(),
+        '/ScreenFavoritos': (context) => const TelaFav(),
+        '/ScreenRedefinirSenha': (context) => const RedefinirSenha(),
       },
     );
   }
