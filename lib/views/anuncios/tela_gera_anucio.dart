@@ -44,6 +44,16 @@ class _GeraAnucioState extends State<GeraAnucio> {
     return AppBar(
       elevation: 0,
       backgroundColor: kBackGroundColor,
+      centerTitle: true,
+      title: const Text(
+        'Gerar Anúncio',
+      ),
+      titleTextStyle: const TextStyle(
+        fontFamily: 'Kadwa',
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        ),
       iconTheme: const IconThemeData(color: Colors.black, size: 30),
     );
   }
