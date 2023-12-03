@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/firebase/auth_firebase.dart';
 import 'package:projeto_integrador/theme/colors.dart';
@@ -173,8 +174,27 @@ class _TelaLoginState extends State<TelaLogin> {
               },
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 55,
+            child: RichText(
+              textAlign: TextAlign.left,
+              text: TextSpan(
+                children: [
+                  const TextSpan(
+                    text: '',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  TextSpan(
+                    text: 'Esqueceu sua senha?',
+                    style: const TextStyle(color: Colors.blue),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        ('/ScreenRecuperarSenha');
+                      },
+                  ),
+                ],
+              ),
+            ),
           ),
           ElevatedButton(
             onPressed: () {
@@ -193,8 +213,7 @@ class _TelaLoginState extends State<TelaLogin> {
     final senha = _passwordController.text;
 
     if (_formKey.currentState!.validate()) {
-      _auth
-          .logarUser(email: email, senha: senha).then(
+      _auth.logarUser(email: email, senha: senha).then(
         (value) {
           if (value == null) {
             Navigator.pushNamed(context, '/ScreenHome');
