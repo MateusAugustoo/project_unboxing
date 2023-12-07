@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_button_style.dart';
@@ -12,7 +13,18 @@ class RedefinirSenha extends StatefulWidget {
 }
 
 class _RedefinirSenhaState extends State<RedefinirSenha> {
+  final _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  void _resetPassord(BuildContext context) async{
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+        email: _emailController.text,
+        );
+    } catch (e) {
+      print('erro: $e');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,27 +76,18 @@ class _RedefinirSenhaState extends State<RedefinirSenha> {
           SizedBox(
             width: 353,
             child: TextFormField(
+              controller: _emailController,
               decoration: getInputDecoration(
-                textlabel: 'Digite sua nova senha',
+                textlabel: 'Email',
                 icon: (Icons.key_rounded),
               ),
             )
           ),
           const SizedBox(height: 30),
-          SizedBox(
-            width: 353,
-            child: TextFormField(
-              decoration: getInputDecoration(
-                textlabel: 'Confirme sua nova senha',
-                icon: (Icons.key_rounded),
-              ),
-              obscureText: true,
-            ),
-          ),
           const SizedBox(height: 50),
-          ElevatedButton(onPressed: () {},
+          ElevatedButton(onPressed: () => _resetPassord(context),
           style: getStyleButton(width: 167, height: 55),
-          child: const Text('Redefinir'),)
+          child: const Text('Enviar'),)
         ],
       ),
     );
