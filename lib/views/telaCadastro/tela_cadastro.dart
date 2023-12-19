@@ -182,6 +182,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
             style: getStyleButton(width: 167, height: 55),
             child: const Text(
               'Cadastrar',
+              style: TextStyle(color: kColorTextPrimary),
             ),
           ),
         ],

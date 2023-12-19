@@ -60,7 +60,7 @@ class _TelaEnderecoState extends State<TelaEndereco> {
   Widget _getBody() {
     return SafeArea(
       child: StreamBuilder(
-        stream: snapshots,
+        stream: snapshots, 
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
             return Text('Erro${snapshot.error}');

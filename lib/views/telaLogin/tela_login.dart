@@ -201,7 +201,8 @@ class _TelaLoginState extends State<TelaLogin> {
               loginPage();
             },
             style: getStyleButton(width: 167, height: 55),
-            child: const Text('Entrar'),
+            child: const Text('Entrar',
+            style: TextStyle(color: kColorTextPrimary),),
           ),
         ],
       ),
