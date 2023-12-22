@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/firebase/auth_firebase.dart';
 import 'package:projeto_integrador/theme/colors.dart';
 import 'package:projeto_integrador/theme/get_drawer_heade_style.dart';
+
+
+final AuthFirebase _authFirebase = AuthFirebase();
 
 Widget getDrawer(BuildContext context) {
   return Drawer(
@@ -59,7 +63,7 @@ Widget getDrawer(BuildContext context) {
                             Icon(
                               Icons.edit_note_rounded,
                               color: kColorTextTertiary,
-                              size: 25,
+                              size: 24,
                             )
                           ],
                         )
@@ -196,9 +200,11 @@ Widget getDrawer(BuildContext context) {
                 size: 30,
               ),
             ),
-            const ListTile(
-              onTap: null,
-              title: Text(
+             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, '/ScreenEntrada');
+              },
+              title: const Text(
                 'Sair',
                 style: TextStyle(
                     fontFamily: 'Kadwa',
@@ -206,7 +212,7 @@ Widget getDrawer(BuildContext context) {
                     fontWeight: FontWeight.bold,
                     color: kColorTextTertiary),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.logout_outlined,
                 color: Colors.white,
                 size: 30,
@@ -215,4 +221,8 @@ Widget getDrawer(BuildContext context) {
           ],
         ),
       ));
+}
+
+logout(){
+  _authFirebase.logout();
 }
