@@ -13,12 +13,12 @@ class TelaCadastro extends StatefulWidget {
 }
 
 class _TelaCadastroState extends State<TelaCadastro> {
+  final _formKey2 = GlobalKey<FormState>();
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   final AuthFirebase _auth = AuthFirebase();
 
@@ -143,6 +143,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
           ),
           SizedBox(
             width: 352,
+            key: _formKey2,
             child: TextFormField(
               obscureText: obscureTextConfirm,
               controller: _confirmPasswordController,
@@ -168,6 +169,9 @@ class _TelaCadastroState extends State<TelaCadastro> {
                 if (value.length < 6) {
                   return 'A senha deve ter pelo menos 6 caracteres';
                 }
+                if(_passwordController.text != _confirmPasswordController.text){
+                  return 'As senhas devem ser iguais';
+                }
                 return null;
               },
             ),
@@ -182,6 +186,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
             style: getStyleButton(width: 167, height: 55),
             child: const Text(
               'Cadastrar',
+              style: TextStyle(color: kColorTextTertiary),
             ),
           ),
         ],

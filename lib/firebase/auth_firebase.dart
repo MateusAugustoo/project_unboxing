@@ -21,7 +21,6 @@ class AuthFirebase {
       if (e.code == 'email-already-in-use') {
         return 'O usuario esta cadastrado';
       }
-
       return 'erro desconhecido';
     }
   }
@@ -32,6 +31,9 @@ class AuthFirebase {
       await _auth.signInWithEmailAndPassword(email: email, password: senha);
       return null;
     } on FirebaseAuthException catch (e) {
+      if (e.code == 'auth/wrong-password') {
+        return 'Senha Incorreta!!';
+      }
       return e.message;
     }
   }
