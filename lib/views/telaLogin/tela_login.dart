@@ -169,6 +169,9 @@ class _TelaLoginState extends State<TelaLogin> {
                 if (value == null || value.isEmpty) {
                   return 'Por favor, digite uma senha';
                 }
+                if (value.length < 6) {
+                  return 'Por favor, digite uma senha com pelo menos 6 caracteres';
+                }
                 return null;
               },
             ),

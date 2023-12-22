@@ -9,6 +9,8 @@ import 'package:projeto_integrador/views/telaEntrada/tela_entrada.dart';
 import 'package:projeto_integrador/views/telaLogin/tela_login.dart';
 import 'package:projeto_integrador/views/telaPerfil/tela_perfil.dart';
 import 'package:projeto_integrador/views/telaSenha/tela_senha.dart';
+import 'package:projeto_integrador/views/telaFavoritos/tela_favorito.dart';
+import 'package:projeto_integrador/views/telaCompras/tela_compras.dart';
 
 import '../views/endereço/fom_add_endereco.dart';
 import '../views/endereço/tela_endereco.dart';
@@ -35,6 +37,8 @@ class Routes extends StatelessWidget {
         '/ScreenFormAddEndereco': (context) => const FormeAddEndereco(),
         '/ScreenSenha': (context) => const RedefinirSenha(),
         '/ScreenEntrada': (context) => const TelaEntrada(),
+        '/ScreenFavoritos': (context) => const TelaFavoritos(),
+        '/ScreenCompras': (context) => const TelaCompras(),
       },
     );
   }
