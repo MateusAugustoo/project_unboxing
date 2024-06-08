@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/firebase/auth_firebase.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-import 'package:projeto_integrador/theme/get_drawer_heade_style.dart';
+
+import '../firebase/auth_firebase.dart';
+import '../theme/colors.dart';
+import '../theme/get_drawer_heade_style.dart';
+
 
 
 final AuthFirebase _authFirebase = AuthFirebase();

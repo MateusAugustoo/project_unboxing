@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/firebase/firestore_firebase.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-
+import '../../firebase/firestore_firebase.dart';
+import '../../theme/colors.dart';
 import '../../widgets/get_app_bar_screens.dart';
+
 
 class TelaEndereco extends StatefulWidget {
   const TelaEndereco({super.key});
@@ -25,7 +25,7 @@ class _TelaEnderecoState extends State<TelaEndereco> {
       backgroundColor: kBackGroundColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(95),
-        child: getAppBarScreensSecundary(title: 'Endereço'),
+        child: getAppBarScreensSecondary(title: 'Endereço'),
       ),
       body: _getBody(),
       floatingActionButton: _getButtonAddEndereco(),

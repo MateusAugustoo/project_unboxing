@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-import 'package:projeto_integrador/theme/get_button_style.dart';
+
+import '../theme/colors.dart';
+import '../theme/get_button_style.dart';
+
 
 AlertDialog alertDialogAddEndereco(
     {required String title,

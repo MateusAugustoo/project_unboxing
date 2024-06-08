@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/widgets/get_app_bar_screens.dart';
-import 'package:projeto_integrador/widgets/get_drawer.dart';
+import '../../widgets/get_app_bar_screens.dart';
+import '../../widgets/get_drawer.dart';
 
 class TelaCard extends StatefulWidget {
   const TelaCard({super.key});
@@ -16,7 +16,7 @@ class _TelaCardState extends State<TelaCard> {
       drawer: getDrawer(context),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(91),
-        child: getAppBarScreensSecundary(title: 'Carrinho'),
+        child: getAppBarScreensSecondary(title: 'Carrinho'),
       ),
       body: Container(),
     );

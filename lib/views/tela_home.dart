@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-import 'package:projeto_integrador/theme/get_style_seach.dart';
-import 'package:projeto_integrador/widgets/get_drawer.dart';
+
+import '../theme/colors.dart';
+import '../theme/get_style_seach.dart';
+import '../widgets/get_drawer.dart';
+
 
 class TelaHome extends StatefulWidget {
   const TelaHome({super.key});

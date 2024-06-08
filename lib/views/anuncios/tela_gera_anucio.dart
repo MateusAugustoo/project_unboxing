@@ -1,13 +1,13 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:projeto_integrador/firebase/firestore_firebase.dart';
-import 'package:projeto_integrador/model/produto.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-import 'package:projeto_integrador/theme/get_button_style.dart';
-import 'package:projeto_integrador/theme/get_input_decoration.dart';
-import 'package:projeto_integrador/theme/text_form_style.dart';
+import '../../firebase/firestore_firebase.dart';
+import '../../model/produto.dart';
+import '../../theme/colors.dart';
+import '../../theme/get_button_style.dart';
+import '../../theme/get_input_decoration.dart';
+import '../../theme/text_form_style.dart';
+
 
 class GeraAnucio extends StatefulWidget {
   const GeraAnucio({super.key});

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
+
+import '../theme/colors.dart';
+
 
 Divider getLineSpace() {
   return const Divider(

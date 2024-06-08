@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/get_style_select_perfil.dart';
 
-GestureDetector getSelectOpcPerfil({required String text, required IconData iconSelect, required double sizedBox, void Function()? onTap}) {
+import '../theme/get_style_select_perfil.dart';
+
+
+GestureDetector getSelectOpcProfile({required String text, required IconData iconSelect, required double sizedBox, void Function()? onTap}) {
   return GestureDetector(
     onTap: onTap,
     child: Row(
@@ -15,7 +17,7 @@ GestureDetector getSelectOpcPerfil({required String text, required IconData icon
         ),
         Text(
           (text),
-          style: getStyleSelectPerfil,
+          style: getStyleSelectProfile,
         )
       ],
     ),

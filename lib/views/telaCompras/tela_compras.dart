@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/widgets/get_app_bar_screens.dart';
-import 'package:projeto_integrador/widgets/get_drawer.dart';
+import '../../widgets/get_app_bar_screens.dart';
+import '../../widgets/get_drawer.dart';
 
 class TelaCompras extends StatefulWidget {
   const TelaCompras({super.key});
@@ -16,7 +16,7 @@ class _TelaCompState extends State<TelaCompras> {
       drawer: getDrawer(context),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(91),
-        child: getAppBarScreensSecundary(title: 'Compras'),
+        child: getAppBarScreensSecondary(title: 'Compras'),
       ),
       body: Container(),
     );

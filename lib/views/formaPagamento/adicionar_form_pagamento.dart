@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/widgets/app_bar_secundary_screens.dart';
-
 import '../../theme/get_button_style.dart';
+import '../../widgets/app_bar_secundary_screens.dart';
 
 class AddFormaPagamento extends StatefulWidget {
   const AddFormaPagamento({super.key});
@@ -16,7 +15,7 @@ class _AddFormaPagamentoState extends State<AddFormaPagamento> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
-        child: appBarSecundaryScreens(),
+        child: appBarSecondaryScreens(),
       ),
       body: _getBody(),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
+
+import 'colors.dart';
+
 
 ButtonStyle getStyleButton(
   {required double width, required double height,}

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
 
-Widget getAppBarScreensSecundary({required String title}) {
+import '../theme/colors.dart';
+
+
+Widget getAppBarScreensSecondary({required String title}) {
   return Column(
     children: [
       AppBar(

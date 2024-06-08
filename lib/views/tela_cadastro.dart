@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/firebase/auth_firebase.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-import 'package:projeto_integrador/theme/get_button_style.dart';
-import 'package:projeto_integrador/theme/get_input_decoration.dart';
-import 'package:projeto_integrador/widgets/get_app_bar_login_cadastro.dart';
+
+import '../firebase/auth_firebase.dart';
+import '../theme/colors.dart';
+import '../theme/get_button_style.dart';
+import '../theme/get_input_decoration.dart';
+import '../widgets/get_app_bar_login_cadastro.dart';
 
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({super.key});

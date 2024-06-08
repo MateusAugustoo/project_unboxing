@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 
-Widget appBarSecundaryScreens(){
+Widget appBarSecondaryScreens(){
   return AppBar();
 }

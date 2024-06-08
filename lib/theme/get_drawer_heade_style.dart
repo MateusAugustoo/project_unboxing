@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
+
+import 'colors.dart';
+
 
 Decoration getStyleDrawer = const BoxDecoration(
   border: Border(

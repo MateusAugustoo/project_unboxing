@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/widgets/get_app_bar_screens.dart';
-import 'package:projeto_integrador/widgets/get_drawer.dart';
+import '../../widgets/get_app_bar_screens.dart';
+import '../../widgets/get_drawer.dart';
 
 class TelaFavoritos extends StatefulWidget {
   const TelaFavoritos({super.key});
@@ -16,7 +16,7 @@ class _TelaFavState extends State<TelaFavoritos> {
       drawer: getDrawer(context),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(91),
-        child: getAppBarScreensSecundary(title: 'Favoritos'),
+        child: getAppBarScreensSecondary(title: 'Favoritos'),
         ),
         body: Container(),
     );

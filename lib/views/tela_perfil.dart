@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/theme/colors.dart';
-import 'package:projeto_integrador/widgets/get_line_space_perfil.dart';
-import 'package:projeto_integrador/widgets/get_select_opc_perfil.dart';
+import 'package:unboxing/widgets/get_select_opc_perfil.dart';
+
+import '../theme/colors.dart';
+import '../widgets/get_line_space_perfil.dart';
+
 
 class TelaPerfil extends StatefulWidget {
   const TelaPerfil({super.key});
@@ -69,7 +71,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
               ],
             ),
             getLineSpace(),
-            getSelectOpcPerfil(
+            getSelectOpcProfile(
                 text: 'Endereço',
                 iconSelect: Icons.person_pin_circle_outlined,
                 sizedBox: 85,
@@ -77,7 +79,7 @@ class _TelaPerfilState extends State<TelaPerfil> {
                   Navigator.pushNamed(context, '/ScreenEndereco')
                 }),
             getLineSpace(),
-            getSelectOpcPerfil(
+            getSelectOpcProfile(
                 text: 'Formas de Pagamento',
                 iconSelect: Icons.style_outlined,
                 onTap: () {
@@ -85,12 +87,12 @@ class _TelaPerfilState extends State<TelaPerfil> {
                 },
                 sizedBox: 45),
             getLineSpace(),
-            getSelectOpcPerfil(
+            getSelectOpcProfile(
                 text: 'Redefinir Senha',
                 iconSelect: Icons.key_outlined,
                 sizedBox: 58),
             getLineSpace(),
-            getSelectOpcPerfil(
+            getSelectOpcProfile(
                 text: 'Configurar perfil',
                 iconSelect: Icons.account_circle_outlined,
                 sizedBox: 59),
